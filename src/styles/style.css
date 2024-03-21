@@ -1,0 +1,50 @@
+
+.bluebtn{
+    width:245px;
+  font-weight: bold;
+    text-align: center;
+    background-color: blue;
+    border-radius: 5px;
+color:white;
+padding:10px;
+margin:10px;
+border-color: white;
+}
+.orangebtn{
+    width:245px;
+    font-weight: bold;
+    text-align:center;
+    background-color: orange;
+    border-radius: 5px;
+color:white;
+padding:10px;
+margin:10px;
+border-color: white;
+}
+.greebackground{
+    background-color: green;
+}
+.bluebackground{
+    background-color: blue;
+}
+.redbackground{
+    background-color: red;
+    color:white;
+    font-weight: bold;
+}
+.centercontainer{
+
+    text-align: center;
+}
+.dashboardbtn{
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+   
+    text-align: center;
+}
+.profileavatar{
+    width: 200px;
+    height:200px;
+    
+}
