@@ -21,8 +21,10 @@ padding:10px;
 margin:10px;
 border-color: white;
 }
-.greebackground{
+.greenbackground{
     background-color: green;
+    color:white;
+    font-weight:bold;
 }
 .bluebackground{
     background-color: blue;
@@ -47,4 +49,12 @@ border-color: white;
     width: 200px;
     height:200px;
     
+}
+.roomtitle{
+    display:flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.marginleft{
+    margin-left: 200px;
 }

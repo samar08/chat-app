@@ -28,7 +28,7 @@ const Dashboard = ({onsignout}) => {
       Dashboard
     </Drawer.Title>
     <Drawer.Actions>
-    <Button appearance="Primary" color="red" className="redbackground" onClick={onsignout}>
+    <Button appearance="primary" color="red" className="redbackground" onClick={onsignout}>
 Sign out 
 </Button>
     </Drawer.Actions>
