@@ -2,10 +2,19 @@ import React from 'react'
 import { Loader, Nav } from 'rsuite'
 import RoomItem from './RoomItem'
 import { useRooms } from '../../context/rooms.context'
+import {  useLocation, Link } from 'react-router-dom'
+
+
+
+const NavLink = React.forwardRef(({ href, children, ...rest }, ref) => (
+  <Link ref={ref} to={href} {...rest}>
+    {children}
+  </Link>
+));
 
 const ChatRoomList = ({aboveElHeight}) => {
   const rooms=useRooms();
-  
+  const location=useLocation();
     return <Nav
   appearance='subtle'
   vertical
@@ -14,13 +23,15 @@ const ChatRoomList = ({aboveElHeight}) => {
  style={{
     height:`calc(100% - ${aboveElHeight}px)`
  }}
+ activeKey={location.pathname}
  >
     {!rooms && (<Loader center vertical content="Loading" speed="slow" size="md"/> )}
-    {rooms && rooms.length>0 && rooms.map(room=>{
-        <Nav.Item key={room.id}>
+    {rooms&& rooms.length>0 && rooms.map(room=>(
+      <a href={`/chat/${room.id}`} eventKey={`/chat/${room.id}`} ><Nav.Item    key={room.id}>
     <RoomItem room={room}/>
 </Nav.Item>
-    })}
+</a> 
+    ))}
 
   </Nav>
    

@@ -2,14 +2,14 @@ import React from 'react'
 import TimeAgo from 'timeago-react';
 import '../../styles/style.css'
 const RoomItem = ({room}) => {
-    console.log(room)
+   // console.log(room)
     const {createdAt, name} =room;
-    console.log(name);
-    console.log(createdAt);
+    //console.log(name);
+    //console.log(createdAt);
   return (
     <div>
-    <div className='d-flex justify-content-between align-items-center'>
-    {/* <div className='roomtitle'> */}
+    {/* <div className='d-flex justify-content-between align-items-center'> */}
+   <div style={{ justifyContent: 'space-between', alignItems:'center'}}> 
      <h3 className='text-disappear'>{name}</h3>
      <TimeAgo className='marginleft'
   datetime={new Date(createdAt)}
