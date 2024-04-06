@@ -4,10 +4,12 @@ import { useModalState } from '../../misc/customhooks'
 import AvatarEditor from 'react-avatar-editor'
 import { storage ,database} from '../../misc/firebase'
 import {ref,uploadBytes,getDownloadURL} from 'firebase/storage';
-import {child,set,ref as lref} from 'firebase/database';
+import {child,set,ref as lref,update} from 'firebase/database';
 import { useProfile } from '../../context/profile.context'
 import '../../styles/style.css';
 import ProfileAvatar from '../ProfileAvatar'
+import { getUserUpdate } from '../../misc/helpers'
+
 const fileInputTypes=".png, .jpeg, .jpg"
 const acceptedFileTypes=['image/png', 'image/jpeg', 'image/pjpeg']
 const isValidFile=(file)=> acceptedFileTypes.includes(file.type)
@@ -56,11 +58,13 @@ const AvatarUploadbtn = () => {
                // setIsLoading(false);
                 // const downloadUrl=await uploadAvatarResult.ref.getDownloadURL()
                 getDownloadURL(avatarFileRef).then((url)=>{
-                    const userAvatarRef=child(lref(database,(`/profiles/${profile.uid}`)),'avatar');
-                    set(userAvatarRef,url);
+                    // const userAvatarRef=child(lref(database,(`/profiles/${profile.uid}`)),'avatar');
+                    // set(userAvatarRef,url);
                  
-                    alert('Avatar has been uploaded');
-                    setIsLoading(false);
+                    // alert('Avatar has been uploaded');
+                    // setIsLoading(false);
+                    const updates= getUserUpdate(profile.uid,'avatar', url,database);
+                    update(ref(database),updates);
                    }).catch((err)=>{
                   setIsLoading(false);
                         console.log(err)
