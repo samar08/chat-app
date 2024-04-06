@@ -9,9 +9,12 @@ import Home from './pages/Home';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import { ProfileProvider } from './context/profile.context';
+import { RoomsProvider } from './context/rooms.context';
+import Chatcol from './pages/Home/Chatcol';
 function App() {
   return (
     <ProfileProvider>
+      <RoomsProvider>
     <BrowserRouter>
   <Routes>
     <Route path="/signin" element={<PublicRoute/>}>
@@ -20,8 +23,10 @@ function App() {
     <Route path="/" element={<PrivateRoute/>}>
      <Route path="/" element={<Home/>}/>
     </Route >
+    <Route path="/chat/:chatId" element={<Chatcol/>}></Route>
     </Routes>  
     </BrowserRouter>
+    </RoomsProvider>
     </ProfileProvider>
   );
 }

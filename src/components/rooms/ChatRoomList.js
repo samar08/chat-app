@@ -4,8 +4,8 @@ import RoomItem from './RoomItem'
 import { useRooms } from '../../context/rooms.context'
 import {  useLocation, Link } from 'react-router-dom'
 
-
-
+import { Routes,Route } from 'react-router-dom'
+import Chatcol from '../../pages/Home/Chatcol'
 const NavLink = React.forwardRef(({ href, children, ...rest }, ref) => (
   <Link ref={ref} to={href} {...rest}>
     {children}
@@ -27,11 +27,13 @@ const ChatRoomList = ({aboveElHeight}) => {
  >
     {!rooms && (<Loader center vertical content="Loading" speed="slow" size="md"/> )}
     {rooms&& rooms.length>0 && rooms.map(room=>(
-      <a href={`/chat/${room.id}`} eventKey={`/chat/${room.id}`} ><Nav.Item    key={room.id}>
-    <RoomItem room={room}/>
-</Nav.Item>
-</a> 
+      <Link to={`/chat/${room.id}`} >
+    <RoomItem room={room}/> 
+
+</Link> 
+
     ))}
+    
 
   </Nav>
    
