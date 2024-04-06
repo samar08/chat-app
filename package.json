@@ -19,6 +19,7 @@
     "react-social-icons": "^6.15.0",
     "rsuite": "^5.56.0",
     "timeago-react": "^3.0.6",
+    "use-context-selector": "^1.4.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
