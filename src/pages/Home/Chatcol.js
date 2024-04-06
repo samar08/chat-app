@@ -3,7 +3,7 @@ import Chat from './Chat'
 import { Col } from 'rsuite'
 const Chatcol = () => {
   return (
-    <Col xs={24} md={16} className='h-100' >
+    <Col xs={24} className='h-100' >
       <Chat/>
       </Col>
   )
