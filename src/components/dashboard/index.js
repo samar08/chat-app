@@ -4,18 +4,21 @@ import { useProfile } from '../../context/profile.context'
 import '../../styles/style.css'
 import EditableInput from '../EditableInput'
 import { database } from '../../misc/firebase'
-import { ref,child,set } from 'firebase/database'
+import { ref,child,set, update } from 'firebase/database'
 import ProviderBlock from './ProviderBlock'
 import AvatarUploadbtn from './AvatarUploadbtn';
-
+import { getUserUpdate } from '../../misc/helpers'
 const Dashboard = ({onsignout}) => {
   const {profile}=useProfile()
   const onSave= async (newdata)=>{
     //console.log(newdata);
-    const userNickameRef=child(ref(database,`/profiles/${profile.uid}`),'name')
+    //const userNickameRef=child(ref(database,`/profiles/${profile.uid}`),'name')
     try{
-      await set(userNickameRef,newdata);
-      alert('Nickname has been updated');
+     // await set(userNickameRef,newdata);
+     // alert('Nickname has been updated');
+
+      const updates=await getUserUpdate(profile.uid,'name', newdata,database);
+      update(ref(database),updates);
     }
     catch(err){
       alert(err);
